@@ -110,7 +110,7 @@ namespace MarsRovers.Feature
             {
                 this.ScenarioStart();
 #line 6
-        testRunner.Given(string.Format("Rover is in plateau at ({0},{1}) co-ordinates and facing facing {2}", x, y, direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given(string.Format("Rover is in plateau at ({0},{1}) co-ordinates and facing {2}", x, y, direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
         testRunner.When("the rover moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -124,6 +124,7 @@ namespace MarsRovers.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Rover movement out of boundary")]
+        [NUnit.Framework.TestCaseAttribute("0", "0", "W", null)]
         [NUnit.Framework.TestCaseAttribute("0", "0", "S", null)]
         [NUnit.Framework.TestCaseAttribute("5", "5", "E", null)]
         [NUnit.Framework.TestCaseAttribute("5", "5", "N", null)]
@@ -131,13 +132,13 @@ namespace MarsRovers.Feature
         [NUnit.Framework.TestCaseAttribute("0", "5", "W", null)]
         [NUnit.Framework.TestCaseAttribute("5", "0", "E", null)]
         [NUnit.Framework.TestCaseAttribute("5", "0", "S", null)]
-        public virtual void RoverMovementOutOfBoundary(string _0, string _01, string w, string[] exampleTags)
+        public virtual void RoverMovementOutOfBoundary(string x, string y, string direction, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("0", _0);
-            argumentsOfScenario.Add("0", _01);
-            argumentsOfScenario.Add("W", w);
+            argumentsOfScenario.Add("X", x);
+            argumentsOfScenario.Add("Y", y);
+            argumentsOfScenario.Add("Direction", direction);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Rover movement out of boundary", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 17
     this.ScenarioInitialize(scenarioInfo);
@@ -160,7 +161,7 @@ namespace MarsRovers.Feature
             {
                 this.ScenarioStart();
 #line 18
-        testRunner.Given("Rover is in plateau at (<X>,<Y>) co-ordinates and facing facing <Direction>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given(string.Format("Rover is in plateau at ({0},{1}) co-ordinates and facing {2}", x, y, direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19
         testRunner.When("the rover moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

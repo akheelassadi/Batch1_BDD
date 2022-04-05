@@ -1,61 +1,128 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MarsRovers
 {
-  class Rover
+  public static class Rover
   {
-    public string Direction { get; internal set; }
-    public Point Position { get; internal set; }
+    public static string Direction { get; set; }
+    public static Point Position { get; set; }
 
-    internal void Turn(string turnDirection)
-    {
-      if (turnDirection == "L")
-      {
-
-        if (Direction == "N")
+        public static void Turn(string turnDirection)
         {
-          Direction = "W";
+            if (turnDirection == "L")
+            {
+
+                if (Direction == "N")
+                {
+                    Direction = "W";
+                }
+
+                else if (Direction == "E")
+                {
+                    Direction = "N";
+                }
+
+                else if (Direction == "W")
+                {
+                    Direction = "S";
+                }
+
+                else if (Direction == "S")
+                {
+                    Direction = "E";
+                }
+            }
+
+            if (turnDirection == "R")
+            {
+
+                if (Direction == "N")
+                {
+                    Direction = "E";
+                }
+
+                else if (Direction == "E")
+                {
+                    Direction = "S";
+                }
+
+                else if (Direction == "W")
+                {
+                    Direction = "N";
+                }
+
+                else if (Direction == "S")
+                {
+                    Direction = "W";
+                }
+            }
         }
 
-        else if (Direction == "E")
+        public  static void Moves()
         {
-          Direction = "N";
+            if (Direction == "N")
+            {
+                Position = new Point(1, 2);
+            }
+            else if(Direction == "S")
+            {
+                Position = new Point(1, 0);
+            }
+            else if(Direction == "E")
+            {
+                Position = new Point(2, 1);
+            }
+            else if (Direction == "W")
+            {
+                Position = new Point(0, 1);
+            }
+            else
+            {
+                Console.WriteLine($"Incorrect input {Direction}");
+            }
         }
 
-        else if (Direction == "W")
+        public static bool IsRoverOutSideThePlateu()
         {
-          Direction = "S";
+
+            if (Direction == "W" && Position.Equals(new Point(0,0)))
+            {
+                return true;
+            }
+            else if(Direction == "S" && Position.Equals(new Point(0, 0)))
+            {
+                return true;
+            }
+            else if (Direction == "E" && Position.Equals(new Point(5, 5)))
+            {
+                return true;
+            }
+            else if (Direction == "N" && Position.Equals(new Point(5, 5)))
+            {
+                return true;
+            }
+            else if (Direction == "N" && Position.Equals(new Point(0, 5)))
+            {
+                return true;
+            }
+            else if (Direction == "W" && Position.Equals(new Point(0, 5)))
+            {
+                return true;
+            }
+            else if (Direction == "E" && Position.Equals(new Point(5, 0)))
+            {
+                return true;
+            }
+            else if (Direction == "S" && Position.Equals(new Point(5, 0)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        else if (Direction == "S")
-        {
-          Direction = "E";
-        }
-      }
-
-      if (turnDirection == "R")
-      {
-
-        if (Direction == "N")
-        {
-          Direction = "E";
-        }
-
-        else if (Direction == "E")
-        {
-          Direction = "S";
-        }
-
-        else if (Direction == "W")
-        {
-          Direction = "N";
-        }
-
-        else if (Direction == "S")
-        {
-          Direction = "W";
-        }
-      }
     }
-  }
 }
