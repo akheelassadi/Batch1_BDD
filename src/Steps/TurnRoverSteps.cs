@@ -8,7 +8,7 @@ namespace MarsRovers.Steps
     public class TurnRoverSteps
     {
         private readonly ScenarioContext _scenarioContext;
-        //private Rover rover;
+        private Rover rover;
 
         public TurnRoverSteps(ScenarioContext scenarioContext)
         {
@@ -19,21 +19,23 @@ namespace MarsRovers.Steps
         public void GivenRoverIsInPlateauAtCo_OrdinatesAndFacing(int x, int y, string direction)
         {
             Point point = new Point(x,y);
-            Rover.Position = point;
-            Rover.Direction = direction;
+            rover = new Rover();
+            rover.Position = point;
+            rover.Direction = direction;
+            
         }
 
         [When(@"the rover turns ([LR]{1})")]
         public void WhenTheRoverTurns(string turnDirection)
         {
-            Rover.Turn(turnDirection);
+            rover.Turn(turnDirection);
         }
 
         [Then(@"Rover turns to a new direction ([NEWS]{1}) with same cordinates \((\d+),(\d+)\)")]
         public void ThenRoverTurnsToANewDirectionWithSameCordinates(string direction,int x, int y)
         {
-            Rover.Direction.Should().Be(direction);
-            Rover.Position.Should().Be(new Point(x, y));
+            rover.Direction.Should().Be(direction);
+            rover.Position.Should().Be(new Point(x, y));
  
         }
     }

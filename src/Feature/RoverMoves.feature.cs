@@ -167,7 +167,7 @@ namespace MarsRovers.Feature
         testRunner.When("the rover moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
-        testRunner.Then("the rover falls out of the plateau", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then(string.Format("the rover falls out of the plateau for ({0},{1}) while facing {2}", x, y, direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

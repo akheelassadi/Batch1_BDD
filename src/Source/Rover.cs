@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace MarsRovers
 {
-  public static class Rover
+  public class Rover
   {
-    public static string Direction { get; set; }
-    public static Point Position { get; set; }
+    public string Direction { get; set; }
+    public Point Position { get; set; }
 
-        public static void Turn(string turnDirection)
+        public void Turn(string turnDirection)
         {
             if (turnDirection == "L")
             {
@@ -59,7 +59,7 @@ namespace MarsRovers
             }
         }
 
-        public  static void Moves()
+        public  void Moves()
         {
             if (Direction == "N")
             {
@@ -83,10 +83,9 @@ namespace MarsRovers
             }
         }
 
-        public static bool IsRoverOutSideThePlateu()
+        public  bool IsRoverOutSideThePlateu()
         {
-
-            if (Direction == "W" && Position.Equals(new Point(0,0)))
+            if(Direction == "W" && Position.Equals(new Point(0,0)))
             {
                 return true;
             }
@@ -94,27 +93,27 @@ namespace MarsRovers
             {
                 return true;
             }
-            else if (Direction == "E" && Position.Equals(new Point(5, 5)))
+            else if(Direction == "E" && Position.Equals(new Point(5, 5)))
             {
                 return true;
             }
-            else if (Direction == "N" && Position.Equals(new Point(5, 5)))
+            else if(Direction == "N" && Position.Equals(new Point(5, 5)))
             {
                 return true;
             }
-            else if (Direction == "N" && Position.Equals(new Point(0, 5)))
+            else if(Direction == "N" && Position.Equals(new Point(0, 5)))
             {
                 return true;
             }
-            else if (Direction == "W" && Position.Equals(new Point(0, 5)))
+            else if(Direction == "W" && Position.Equals(new Point(0, 5)))
             {
                 return true;
             }
-            else if (Direction == "E" && Position.Equals(new Point(5, 0)))
+            else if(Direction == "E" && Position.Equals(new Point(5, 0)))
             {
                 return true;
             }
-            else if (Direction == "S" && Position.Equals(new Point(5, 0)))
+            else if(Direction == "S" && Position.Equals(new Point(5, 0)))
             {
                 return true;
             }

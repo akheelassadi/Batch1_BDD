@@ -2,7 +2,7 @@
 
     Rover should be successfully able to move
 
-    Scenario: Rover Movement
+    Scenario Outline: Rover Movement
         Given Rover is in plateau at (<X>,<Y>) co-ordinates and facing <Direction>
         When the rover moves
         Then the rover reaches new position (<M>,<N>) in the same <Direction>.
@@ -14,10 +14,10 @@
             | 1 | 1 | W         | 0 | 1 |
 
 
-    Scenario: Rover movement out of boundary
+    Scenario Outline: Rover movement out of boundary
         Given Rover is in plateau at (<X>,<Y>) co-ordinates and facing <Direction>
         When the rover moves
-        Then the rover falls out of the plateau
+        Then the rover falls out of the plateau for (<X>,<Y>) while facing <Direction>
         Examples:
             | X | Y | Direction |
             | 0 | 0 | W |
@@ -28,3 +28,5 @@
             | 0 | 5 | W |
             | 5 | 0 | E |
             | 5 | 0 | S |
+
+
